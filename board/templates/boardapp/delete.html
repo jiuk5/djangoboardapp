@@ -1,0 +1,10 @@
+{%extends 'boardapp/base.html'%}
+{%block title %}Delete{%endblock title%}
+{%block headline %}삭제{%endblock headline %}
+{%block content%}
+<p> 선택한 개시글 {{boardmodel.title}}. {{boardmodel.writer}}를 삭제 하시겠습니까? <br>
+<form method = "post" action="{% url 'board:delete' %}?id={{boardmodel.id}}">
+    {%csrf_token%}
+    <input type="submit" value="삭제">
+</form>
+{%endblock%}

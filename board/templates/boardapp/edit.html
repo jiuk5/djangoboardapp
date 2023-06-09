@@ -1,0 +1,27 @@
+{%extends 'boardapp/base.html'%}
+{%block title %}Edit{%endblock title%}
+{%block headline %}수정{%endblock headline %}
+{%block content%}
+<style>
+    table, th, td { border: 1px solid black }
+</style>
+<form method="post" action="{% url 'board:add' %}">
+    {% csrf_token %}
+<table>
+    <tr> 
+        <th>Title:</th>
+        <td><input type="text" name="title" placeholder="제목수정" value="{{boardmodel.title}}"> </td>
+    </tr>
+    <tr> 
+        <th>Writer:</th>
+        <td><input type="text" name="writer" placeholder="작성자" value="{{boardmodel.writer}}"> </td>
+    </tr>
+    <tr> 
+        <th>Content:</th>
+        <td><input type="text" name="content" placeholder="내용수정" value="{{boardmodel.content}}"> </td>
+    </tr>
+    </table>
+    <p><input type="submit" value="수정"></p>
+    </form>
+
+{%endblock%}

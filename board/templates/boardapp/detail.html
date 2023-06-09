@@ -1,0 +1,16 @@
+{%extends 'boardapp/base.html'%}
+{%block title %}detail{%endblock title%}
+{%block headline %}자세히 보기{%endblock headline %}
+{%block content%}
+글내용 날짜:{{boardmodel.regdate}} <br>
+조회수:{{boardmodel.readcount}} <br>
+작성자:{{boardmodel.writer}} <br>
+제목: {{boardmodel.title}}<br>
+내용: {{boardmodel.content}} <br>
+<hr>
+<br>
+<a href="{% url 'board:edit' %}?id={{boardmodel.id}}">수정</a> <br>
+<a href="{% url 'board:delete' %}?id={{boardmodel.id}}">삭제</a> <br>
+
+
+{%endblock%}

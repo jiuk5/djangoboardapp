@@ -1,0 +1,28 @@
+{%extends 'boardapp/base.html'%}
+{%block title %}List{%endblock title%}
+{%block headline %}리스트{%endblock headline %}
+{%block content%}
+<style>
+    table, th, td { border: 1px solid black }
+</style>
+<table style="width:100%">
+    <tr style="background-color:lightgrey">
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>조회수</th>
+    </tr>
+    {% for boardmodel in boardmodel %}
+    <tr>
+        <th>{{boardmodel.id}}</th>
+        <td><a href="{% url 'board:detail' %}?id={{boardmodel.id}}">{{boardmodel.title}}</a></td>
+        <td>{{boardmodel.writer}}</td>
+        <td>{{boardmodel.readcount}}</td>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+<button onclick= "location.href='{% url 'board:add'%}'"name ="regist_button">글 등록</button>
+
+
+{%endblock%}
